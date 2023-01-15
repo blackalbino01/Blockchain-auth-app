@@ -31,7 +31,7 @@ class App extends Component {
     try {
       const web3 = await web3Connection();
       const contract = await Contract(web3);
-      const accounts = await web3.eth.getAccounts();
+      const accounts = await web3.eth.requestAccounts();
 
       this.setState({ web3, contract, account: accounts[0] }, this.start);
     } catch (error) {
@@ -50,7 +50,7 @@ class App extends Component {
 
     console.log("web3 =", web3);
     console.log("Contract =", contract);
-    console.log("Acoount =", account);
+    console.log("Account =", account);
   };
 
   getAccount = async () => {
@@ -187,11 +187,7 @@ class App extends Component {
                 this.state.loggedIn ?
                   <Route path='/sign-out' element={<SignOut
                     loggedOut={this.loggedOut}
-                  />}> 
-                    You've been logged out
-                    <br></br>
-                    Thank you
-                  </Route>
+                  />}/> 
                   :
                   <Route path='/sign-up' element={<SignUp
                     web3={this.state.web3}

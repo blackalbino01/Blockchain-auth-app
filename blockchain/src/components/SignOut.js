@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import  { Component } from 'react';
 
 class SignOut extends Component {
     componentDidMount = () => {
@@ -6,10 +6,7 @@ class SignOut extends Component {
     }
 
     render() {
-        return (
-            <>
-            </>
-        );
+        return (alert("You've been logged out<br></br>Thank you"));
     }
 }
 
